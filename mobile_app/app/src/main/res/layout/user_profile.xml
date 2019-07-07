@@ -14,6 +14,7 @@
             android:layout_width="88dp"
             android:layout_height="138dp"
             android:layout_weight="1"
+            android:onClick="onBackClick"
             android:scaleType="fitXY"
             android:scaleX="1"
             android:scaleY="1"
@@ -76,11 +77,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="Fast_Food"
+            android:text="Japanese"
             android:textSize="20dp" />
 
         <SeekBar
-            android:id="@+id/seekBar4"
+            android:id="@+id/japanese_bar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="225dp"
             android:layout_height="wrap_content"
@@ -105,7 +106,7 @@
             android:textSize="20dp" />
 
         <SeekBar
-            android:id="@+id/seekBar5"
+            android:id="@+id/chinese_bar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="227dp"
             android:layout_height="wrap_content"
@@ -130,7 +131,7 @@
             android:textSize="20dp" />
 
         <SeekBar
-            android:id="@+id/seekBar6"
+            android:id="@+id/bank_bar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="228dp"
             android:layout_height="wrap_content"
@@ -155,7 +156,7 @@
             android:textSize="20dp" />
 
         <SeekBar
-            android:id="@+id/seekBar7"
+            android:id="@+id/shop_bar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="221dp"
             android:layout_height="wrap_content"
@@ -180,7 +181,7 @@
             android:textSize="20dp" />
 
         <SeekBar
-            android:id="@+id/seekBar8"
+            android:id="@+id/laundry_bar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="219dp"
             android:layout_height="wrap_content"
@@ -205,7 +206,7 @@
             android:textSize="20dp" />
 
         <SeekBar
-            android:id="@+id/seekBar9"
+            android:id="@+id/shoe_bar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="217dp"
             android:layout_height="wrap_content"
@@ -230,9 +231,34 @@
             android:textSize="20dp" />
 
         <SeekBar
-            android:id="@+id/seekBar10"
+            android:id="@+id/clothing_bar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Italian"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/italian_bar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="219dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:max="4"

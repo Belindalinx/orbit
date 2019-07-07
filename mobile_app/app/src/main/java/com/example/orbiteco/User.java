@@ -29,6 +29,7 @@ public class User {
         mInfos = new HashMap<>();
         setmInfos("Fast_food", 3);
         setmInfos("Japanese", 3);
+        setmInfos("Italian", 3);
         setmInfos("Chinese", 3);
         setmInfos("Bank", 3);
         setmInfos("Shop", 3);

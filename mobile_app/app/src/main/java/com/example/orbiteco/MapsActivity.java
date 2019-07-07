@@ -24,6 +24,8 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.PlaceDetectionClient;
@@ -82,10 +84,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        createMap();
 
         mUsers = new ArrayList<>();
         mShops = new ArrayList<>();
@@ -97,7 +96,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         user1.setmInfos("Italian", 4);
         user1.setmInfos("Fast_food", 0);
-        user1.setmInfos("Shop", 3);
+        user1.setmInfos("Shop", 2);
 
         user2.setmInfos("Chinese", 4);
         user2.setmInfos("Shoe", 0);
@@ -359,6 +358,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             };
 
+
             handler.postDelayed(runnable, 10);
         } else {
             wifiConnected = false;
@@ -367,7 +367,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             disconnectWifi("draper-university");
             handler.removeCallbacks(runnable);
         }
-
     }
 
     public void broke() {
@@ -393,5 +392,119 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void onAD4Click(View view) {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(mShops.get(3).mLatitude, mShops.get(3).mLongitude)));
+    }
+
+    public void createMap() {
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+
+    public void onProfileClick(View view) {
+        SupportMapFragment f = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        if (f != null)
+            getSupportFragmentManager().beginTransaction().remove(f).commit();
+        setContentView(R.layout.user_profile);
+        ((SeekBar)findViewById(R.id.fast_food_bar)).setProgress(mUser.getmInfos("Fast_food")-1);
+        ((SeekBar)findViewById(R.id.japanese_bar)).setProgress(mUser.getmInfos("Japanese")-1);
+        ((SeekBar)findViewById(R.id.chinese_bar)).setProgress(mUser.getmInfos("Chinese")-1);
+        ((SeekBar)findViewById(R.id.bank_bar)).setProgress(mUser.getmInfos("Bank")-1);
+        ((SeekBar)findViewById(R.id.shop_bar)).setProgress(mUser.getmInfos("Shop")-1);
+        ((SeekBar)findViewById(R.id.laundry_bar)).setProgress(mUser.getmInfos("Laundry")-1);
+        ((SeekBar)findViewById(R.id.shoe_bar)).setProgress(mUser.getmInfos("Shoe")-1);
+        ((SeekBar)findViewById(R.id.clothing_bar)).setProgress(mUser.getmInfos("Clothing")-1);
+        ((SeekBar)findViewById(R.id.italian_bar)).setProgress(mUser.getmInfos("Italian")-1);
+
+        SeekBar s = (SeekBar) findViewById(R.id.fast_food_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Fast_food", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+
+        s = (SeekBar) findViewById(R.id.japanese_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Japanese", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+        s = (SeekBar) findViewById(R.id.chinese_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Chinese", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+        s = (SeekBar) findViewById(R.id.bank_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Bank", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+        s = (SeekBar) findViewById(R.id.shop_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Shop", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+        s = (SeekBar) findViewById(R.id.laundry_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Laundry", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+        s = (SeekBar) findViewById(R.id.shoe_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Shoe", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+        s = (SeekBar) findViewById(R.id.clothing_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Clothing", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+        s = (SeekBar) findViewById(R.id.italian_bar);
+        s.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar,
+                                          int progress, boolean fromUser) {
+                mUser.setmInfos("Italian", progress+1);
+            }
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}@Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+    }
+
+    public void onBackClick(View view) {
+        setContentView(R.layout.activity_maps);
+        createMap();
+        computeAds();
+        setTokenTextValue(tokenAmount);
     }
 }
