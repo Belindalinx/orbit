@@ -36,7 +36,6 @@ public class User {
         setmInfos("Shoe", 3);
         setmInfos("Clothing", 3);
 
-
         mUsername = username;
         mTokenAmount = tokenAmount;
         mPassword = password;

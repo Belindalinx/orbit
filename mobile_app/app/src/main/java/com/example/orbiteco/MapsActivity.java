@@ -14,6 +14,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.PlaceDetectionClient;
@@ -153,6 +163,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         return buffer;
+    }
+
+
+    private void sendPost(String urlStr, final String receiver_key, final String sender_key, final int amount, final String time) {
+        RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
+        StringRequest MyStringRequest = new StringRequest(Request.Method.POST, urlStr, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //This code is executed if the server responds, whether or not the response contains data.
+                //The String 'response' contains the server's response.
+            }
+        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //This code is executed if there is an error.
+            }
+        }) {
+            protected Map<String, String> getParams() {
+                Map<String, String> MyData = new HashMap<String, String>();
+                MyData.put("tx_receiver", receiver_key); //Add the data you'd like to send to the server.
+                MyData.put("tx_sender", sender_key);
+                MyData.put("tx_amt", Integer.toString(amount));
+                MyData.put("tx_type", "1");
+                MyData.put("tx_time", time);
+                return MyData;
+            }
+        };
+
+        MyRequestQueue.add(MyStringRequest);
     }
 
     private void connectToWifi(String networkSSID, String networkPassword) {
@@ -304,24 +343,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             button.setText("CONNECTED");
             connectToWifi("draper-university", "duhl3arner!");
 
-
             runnable = new Runnable() {
-                boolean continuer = true;
                 @Override
                 public void run() {
                     /* do what you need to do */
-                    if (wifiConnected && continuer) {
+                    if (wifiConnected) {
+                        sendPost("http://10.10.1.156:3000/transaction/new", "0x7d8ebe5087774332496ef9259a7c5518041abcbf", "0x81a774b8947679ae8deaec6492b27a134d1e85a9", 1, "null");
                         boolean hasTokens = decrementToken();
                         if (!hasTokens) {
                             broke();
                         }
                     }
                     /* and here comes the "trick" */
-                    handler.postDelayed(this, 1000);
-                }
-
-                public void stop() {
-                    continuer = false;
+                    handler.postDelayed(this, 2000);
                 }
             };
 
@@ -340,6 +374,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Button button = findViewById(R.id.connect_button);
         button.setBackgroundColor(getResources().getColor(R.color.red));
         button.setText("BUY TOKENS");
+        wifiConnected = false;
         disconnectWifi("draper-university");
         handler.removeCallbacks(runnable);
     }

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageView3"
+            android:layout_width="88dp"
+            android:layout_height="138dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/leftarrow" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="254dp"
+            android:layout_height="158dp"
+            android:layout_weight="1"
+            android:scaleY="1"
+            app:srcCompat="@drawable/momo" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Fast_Food"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/fast_food_bar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Fast_Food"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar4"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Chinese"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar5"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Bank"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar6"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Shop"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar7"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="221dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Laundry"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar8"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="219dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Shoe"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar9"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Clothing"
+            android:textSize="20dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar10"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="4"
+            android:progress="3" />
+
+    </LinearLayout>
+
+</LinearLayout>
