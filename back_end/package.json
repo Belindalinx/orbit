@@ -1,0 +1,24 @@
+{
+  "name": "hackathon_api_sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ethereumjs-tx": "^2.1.0",
+    "express": "^4.17.1",
+    "keythereum": "^1.0.4",
+    "md5": "^2.2.1",
+    "mysql": "^2.17.1",
+    "sqlite3": "^4.0.9",
+    "web3": "^1.0.0-beta.55"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
