@@ -364,11 +364,15 @@ ctx.post('/transaction/new', function(req, res){
     tx_type: req.body.tx_type,
     tx_time: req.body.tx_time
   }
+  console.log("Received new transaction\r");
+  console.log("Writing it on the databasei\r");
   db.run("INSERT INTO transactions (tx_receiver, tx_sender, tx_amt, tx_type, tx_time) VALUES (?,?,?,?,?)", [data.tx_receiver, data.tx_sender, data.tx_amt, data.tx_type, data.tx_time], function(err, row){
     if (err){
       res.status(400).json({"error": res.message})
       return;
     }
+    console.log("OK");
+    console.log("Sending transaction to the Smart Contract");
 
     // ENVOI DANS BLOCKCHAIN
     let minABI = [
@@ -402,6 +406,7 @@ ctx.post('/transaction/new', function(req, res){
     contract.methods.transfer(data.tx_receiver, data.tx_amt).send({
             from: data.tx_sender
     });
+    console.log("OK");
 
     res.json({
       data: data,
@@ -515,5 +520,17 @@ ctx.post('/hotspot/:id', function(req, res){
 ctx.listen(3000);
 
 
+console.log("");
+console.log(".______        ___       ______  __  ___         _______ .__   __.  _______");
+console.log("|   _  \\      /   \\     /      ||  |/  /        |   ____||  \\ |  | |       \\ ");
+console.log("|  |_)  |    /  ^  \\   |  ,----'|  '  /   ______|  |__   |   \\|  | |  .--.  | ");
+console.log("|   _  <    /  /_\\  \\  |  |     |    <   |______|   __|  |  . `  | |  |  |  | ");
+console.log("|  |_)  |  /  _____  \\ |  `----.|  .  \\         |  |____ |  |\\   | |  '--'  | ");
+console.log("|______/  /__/     \\__\\ \\______||__|\\__\\        |_______||__| \\__| |_______/ ");
+
+console.log("");
+
+
+console.log("Listening on port 3000");
 
 //tokenContract.balanceOf(address).toNumber()
